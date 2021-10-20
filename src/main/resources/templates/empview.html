@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+	integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+	crossorigin="anonymous">
+
+<style>
+body {
+	font-family: "Lato", sans-serif;
+	transition: background-color .10s;
+}
+
+.sidenav {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #800080;
+	background-image:
+		url("https://image.shutterstock.com/image-vector/bangalore-metro-logo-blue-gradient-600w-1989275327.jpg");
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
+}
+
+.sidenav a {
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 15px;
+	color: white;
+	display: block;
+	transition: 0.3s;
+}
+
+.sidenav a:hover {
+	color: white;
+	background-color: #800080;
+}
+
+.sidenav .closebtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 35px;
+	margin-left: 50px;
+}
+
+#main {
+	transition: margin-left .5s;
+	padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+	.sidenav {
+		padding-top: 15px;
+	}
+	.sidenav a {
+		font-size: 18px;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.container {
+	position: relative;
+	width: 100%;
+	max-width: 300px;
+}
+
+.image {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.overlay {
+	position: absolute;
+	bottom: 0;
+	background: rgb(0, 0, 0);
+	background: rgba(0, 0, 0, 0.5); /* Black see-through */
+	color: #f1f1f1;
+	width: 100%;
+	transition: .5s ease;
+	opacity: 0;
+	color: white;
+	font-size: 20px;
+	padding: 20px;
+	text-align: center;
+}
+
+.container:hover .overlay {
+	opacity: 1;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+	overflow: hidden;
+	background-color: transparent;
+	padding: 20px 10px;
+	align-content: center;
+}
+
+.header a {
+	float: left;
+	color: black;
+	text-align: center;
+	padding: 12px;
+	text-decoration: none;
+	font-size: 18px;
+	line-height: 25px;
+	border-radius: 4px;
+}
+
+.header a.logo {
+	font-size: 25px;
+	font-weight: bold;
+	align-content: center;
+}
+
+.header a:hover {
+	background-color: transparent;
+	color: black;
+}
+
+.header a.active {
+	background-color: dodgerblue;
+	color: white;
+	overflow: hidden;
+	padding: 20px 10px;
+}
+
+.header-right {
+	float: right;
+}
+
+@media screen and (max-width: 500px) {
+	.header a {
+		float: none;
+		display: block;
+		text-align: left;
+	}
+	.header-right {
+		float: none;
+	}
+}
+
+#myDIV {
+	animation-direction: normal;
+}
+
+.home {
+	border-radius: 40px;
+	background-color: #800080;
+	font-weight: speak-numeral;
+	text-decoration: blink;
+	font-style: inherit;
+	color: white;
+	overflow: hidden;
+	padding: 20px 10px;
+	font-family: monospace;
+	font-variant: small-caps;
+	font-size: x-large;
+}
+
+.home:hover {
+	background-color: green;
+	color: white;
+	border: solid;
+}
+
+.footer-clean {
+	padding: 10px 0;
+	background-color: black;
+	color: #4b4c4d;
+	width: 100%;
+}
+
+.footer-clean h3 {
+	margin-top: 0;
+	margin-bottom: 12px;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.footer-clean ul {
+	padding: 0;
+	list-style: none;
+	line-height: 1.6;
+	font-size: 14px;
+	margin-bottom: 0;
+}
+
+.footer-clean ul a {
+	color: inherit;
+	text-decoration: none;
+	opacity: 0.8;
+}
+
+.footer-clean ul a:hover {
+	opacity: 1;
+}
+
+.footer-clean .item.social {
+	text-align: right;
+}
+
+@media ( max-width :767px) {
+	.footer-clean .item {
+		text-align: center;
+		padding-bottom: 20px;
+	}
+}
+
+@media ( max-width : 768px) {
+	.footer-clean .item.social {
+		text-align: center;
+	}
+}
+
+.footer-clean .item.social>a {
+	font-size: 24px;
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	display: inline-block;
+	text-align: center;
+	border-radius: 50%;
+	border: 1px solid #ccc;
+	margin-left: 10px;
+	margin-top: 22px;
+	color: inherit;
+	opacity: 0.75;
+}
+
+.footer-clean .item.social>a:hover {
+	opacity: 0.9;
+}
+
+@media ( max-width :991px) {
+	.footer-clean .item.social>a {
+		margin-top: 40px;
+	}
+}
+
+@media ( max-width :767px) {
+	.footer-clean .item.social>a {
+		margin-top: 10px;
+	}
+}
+
+.footer-clean .copyright {
+	margin-top: 14px;
+	margin-bottom: 0;
+	font-size: 20px;
+	opacity: 0.6;
+	color: white;
+	text-align: center;
+}
+
+.text {
+	font-size: 45px;
+	color: #800080;
+	font-style: inherit;
+	border: solid;
+	border-bottom-color: white;
+	padding: 10px 5px;
+	border-width: 15px;
+}
+
+table {
+	border-collapse: collapse;
+	width: 259%;
+	text-align: center;
+	table-layout: auto;
+	align-content: center;
+}
+
+th, td {
+	text-align: center;
+	padding: 15px 10px;
+	text-align: center;
+}
+
+tr:nth-child(even) {
+	background-color: #800080;
+}
+
+.menu {
+	font-size: 30px;
+	cursor: pointer;
+	color: white;
+}
+
+.menu:hover {
+	color: black;
+}
+
+.button {
+	width: 150px;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	background: green;
+	font-size: 16px;
+	color: white;
+	cursor: pointer;
+}
+
+.button:hover {
+	background: #800080;
+	color: black;
+}
+
+.edit {
+	width: 150px;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	background: green;
+	font-size: 16px;
+	color: white;
+	cursor: pointer;
+}
+
+.edit:hover {
+	background: white;
+	color: black;
+}
+
+.detete {
+	width: 150px;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	background: black;
+	font-size: 16px;
+	color: white;
+	cursor: pointer;
+}
+
+.delete:hover {
+	background: black;
+	border: 10px solid;
+	border-radius: 9px;
+	color: red;
+}
+</style>
+<title>BMRCL &nbsp; ನಮ್ಮ ಮೆಟ್ರೋ</title>
+<link rel="icon" type="jpg/png" sizes="40px"
+	href="https://img.icons8.com/external-konkapp-outline-color-konkapp/64/000000/external-railway-japan-konkapp-outline-color-konkapp.png">
+</head>
+</head>
+<body>
+
+	<div class="header">
+		<marquee>
+			<a href="#default" id="myDIV" class="logo"><img alt="not found"
+				width="600px" height="190px" align="middle"
+				src="https://newsonprojects.com/uploads/news/121616.png"></a>
+		</marquee>
+	</div>
+	<div id="mySidenav" class="sidenav">
+		<div>
+			<div class="container">
+				<img width="100px" style="border-radius: 500%"
+					src="https://i.pinimg.com/originals/66/83/3e/66833e07d6fb9eb5d724e47d0c814285.gif"
+					alt="Avatar" class="image">
+				<div class="overlay">Kaushik</div>
+			</div>
+		</div>
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="#">About</a> <a href="home">Home Page</a> <a th:href="@{add}">Employee
+			Registration</a> <a href="insert" th:href="@{insert}">Ticket Counter</a><a
+			href="/employe/list">View Employee Details</a><a href="view"
+			th:href="@{view}">View Ticket Counter Details</a><a href="#">Logout</a>
+	</div>
+
+	<div id="main"
+		style="overflow: hidden; background-color: green; padding: 5px 10px; align-content: center;">
+		<span style="font-size: 30px; cursor: pointer; color: white"
+			onclick="openNav()" class="menu">&#9776; Menu </span> &nbsp; &nbsp;
+		&nbsp; &nbsp; <a class="home" href="employereg" th:href="@{home}"><img
+			width="20px" src="https://app.khatokhal.org/assets/icon/gif/home.gif">Home
+			Page </a>
+	</div>
+	<div style="text-align: center; font-family: OCR A Std, monospace;">
+		<p class="text">View Employee Details</p>
+
+	</div>
+
+	<div
+		style="background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/2000a352812969.59eedeac2642a.gif');">
+		<div class="container my-2">
+			<div>
+				<div>
+					<div th:switch="${employedata}" class="container my-5">
+						<p style="color: black">
+							<a th:href="@{add}" class="btn btn-primary"
+								style="float: right; color: white; background-color: #800080";>
+								<i class="button"> Add New Employee</i>
+							</a>
+						</p>
+						<br> <br>
+
+					</div>
+					<div>
+
+						<!-- <h2 th:case="null">No Employee Details Added yet!</h2>
+						<div th:case="*">  -->
+						<table
+							style="border-radius: 10px; height: 500px; width: 280%; overflow-y: scroll; display: block;">
+							<thead style="color: white; width: 100%;">
+								<tr
+									style="color: rgb(76, 76, 76); border: solid 5px; border-color: purple; background-image: url('https://cdn.dribbble.com/users/1732368/screenshots/6553743/emloyer_employee.gif');">
+									<th>Employee Name</th>
+									<th>address</th>
+									<th>Designation</th>
+									<th>Edit</th>
+									<th>Delete</th>
+								</tr>
+							</thead>
+							<tbody style="color: white;">
+								<tr>
+								<tr th:each="employe : ${employedata}">
+									<td th:text="${employe.ename}"></td>
+									<td th:text="${employe.address}"></td>
+									<td th:text="${employe.desig}"></td>
+									<td><a th:href="@{/employe/edit/{id}(id=${employe.eid})}"
+										class="edit"><i class="fas fa-user-edit ml-2"
+											style="color: #800080; width: 40px"></i></a></td>
+
+
+									<td><a
+										th:href="@{/employe/delete/{id}(id=${employe.eid})}"
+										class="delete"><i class="fas fa-user-times ml-2"
+											style="color: red; width: 40px; background: solid;"></i></a></td>
+							<tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<div class="footer-clean">
+		<footer>
+			<div class="container">
+				<div class="row justify-content-center">
+					<a style="color: white" class="copyright" href=" www.bmrc.co.in"><img
+						width="50px"
+						src="https://img.icons8.com/clouds/100/000000/domain.png" />www.bmrc.co.in</a>
+				</div>
+			</div>
+		</footer>
+
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+	<script>
+		function openNav() {
+			document.getElementById("mySidenav").style.width = "250px";
+			document.getElementById("main").style.ma
+			rginLeft = "250px";
+			document.body.style.backgroundColor = "purple";
+		}
+
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+			document.getElementById("main").style.marginLeft = "0";
+			document.body.style.backgroundColor = "white";
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+	integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+	crossorigin="anonymous">
+<style>
+body {
+	font-family: "Lato", sans-serif;
+	transition: background-color .10s;
+}
+
+.sidenav {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #800080;
+	background-image:
+		url("https://image.shutterstock.com/image-vector/bangalore-metro-logo-blue-gradient-600w-1989275327.jpg");
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
+}
+
+.sidenav a {
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 15px;
+	color: white;
+	display: block;
+	transition: 0.3s;
+}
+
+.sidenav a:hover {
+	color: white;
+	background-color: #800080;
+}
+
+.sidenav .closebtn {
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 35px;
+	margin-left: 50px;
+}
+
+#main {
+	transition: margin-left .5s;
+	padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+	.sidenav {
+		padding-top: 15px;
+	}
+	.sidenav a {
+		font-size: 18px;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.container {
+	position: relative;
+	width: 100%;
+	max-width: 300px;
+}
+
+.image {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.overlay {
+	position: absolute;
+	bottom: 0;
+	background: rgb(0, 0, 0);
+	background: rgba(0, 0, 0, 0.5); /* Black see-through */
+	color: #f1f1f1;
+	width: 100%;
+	transition: .5s ease;
+	opacity: 0;
+	color: white;
+	font-size: 20px;
+	padding: 20px;
+	text-align: center;
+}
+
+.container:hover .overlay {
+	opacity: 1;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+	overflow: hidden;
+	background-color: transparent;
+	padding: 20px 10px;
+	align-content: center;
+}
+
+.header a {
+	float: left;
+	color: black;
+	text-align: center;
+	padding: 12px;
+	text-decoration: none;
+	font-size: 18px;
+	line-height: 25px;
+	border-radius: 4px;
+}
+
+.header a.logo {
+	font-size: 25px;
+	font-weight: bold;
+	align-content: center;
+}
+
+.header a:hover {
+	background-color: transparent;
+	color: black;
+}
+
+.header a.active {
+	background-color: dodgerblue;
+	color: white;
+	overflow: hidden;
+	padding: 20px 10px;
+}
+
+.header-right {
+	float: right;
+}
+
+@media screen and (max-width: 500px) {
+	.header a {
+		float: none;
+		display: block;
+		text-align: left;
+	}
+	.header-right {
+		float: none;
+	}
+}
+
+#myDIV {
+	animation-direction: normal;
+}
+
+.home {
+	border-radius: 40px;
+	background-color: #800080;
+	font-weight: speak-numeral;
+	text-decoration: blink;
+	font-style: inherit;
+	color: white;
+	overflow: hidden;
+	padding: 20px 10px;
+	font-family: monospace;
+	font-variant: small-caps;
+	font-size: x-large;
+}
+
+.home:hover {
+	background-color: green;
+	color: white;
+	border: solid;
+}
+
+.footer-clean {
+	padding: 10px 0;
+	background-color: black;
+	color: #4b4c4d;
+}
+
+.footer-clean h3 {
+	margin-top: 0;
+	margin-bottom: 12px;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.footer-clean ul {
+	padding: 0;
+	list-style: none;
+	line-height: 1.6;
+	font-size: 14px;
+	margin-bottom: 0;
+}
+
+.footer-clean ul a {
+	color: inherit;
+	text-decoration: none;
+	opacity: 0.8;
+}
+
+.footer-clean ul a:hover {
+	opacity: 1;
+}
+
+.footer-clean .item.social {
+	text-align: right;
+}
+
+@media ( max-width :767px) {
+	.footer-clean .item {
+		text-align: center;
+		padding-bottom: 20px;
+	}
+}
+
+@media ( max-width : 768px) {
+	.footer-clean .item.social {
+		text-align: center;
+	}
+}
+
+.footer-clean .item.social>a {
+	font-size: 24px;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	display: inline-block;
+	text-align: center;
+	border-radius: 50%;
+	border: 1px solid #ccc;
+	margin-left: 10px;
+	margin-top: 22px;
+	color: inherit;
+	opacity: 0.75;
+}
+
+.footer-clean .item.social>a:hover {
+	opacity: 0.9;
+}
+
+@media ( max-width :991px) {
+	.footer-clean .item.social>a {
+		margin-top: 40px;
+	}
+}
+
+@media ( max-width :767px) {
+	.footer-clean .item.social>a {
+		margin-top: 10px;
+	}
+}
+
+.footer-clean .copyright {
+	margin-top: 14px;
+	margin-bottom: 0;
+	font-size: 20px;
+	opacity: 0.6;
+	color: white;
+}
+
+.text {
+	font-size: 45px;
+	color: #800080;
+	font-style: inherit;
+	border: solid;
+	border-bottom-color: white;
+	padding: 10px 5px;
+	border-width: 15px;
+}
+
+.details {
+	font-size: 30px;
+	font-variant: inherit;
+	text-align: center;
+}
+
+html, body {
+	min-height: 100%;
+}
+
+body, div, form, input, select, textarea, label {
+	padding: 0;
+	margin: 0;
+	outline: none;
+	font-family: Roboto, Arial, sans-serif;
+	font-size: 14px;
+	color: #666;
+	line-height: 22px;
+}
+
+h1 {
+	position: absolute;
+	margin: 0;
+	font-size: 40px;
+	color: #fff;
+	z-index: 2;
+	line-height: 83px;
+}
+
+.testbox {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: inherit;
+	padding: 20px;
+}
+
+form {
+	width: 100%;
+	padding: 20px;
+	border-radius: 6px;
+	background: #fff;
+	box-shadow: 0 0 8px #800080;
+}
+
+.banner {
+	position: relative;
+	height: 300px;
+	background-image:
+		url("/uploads/media/default/0001/02/234656e7acbca4625305dd37e7344af8eff32383.jpeg");
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.banner::after {
+	content: "";
+	background-color: rgba(0, 0, 0, 0.2);
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+input, select, textarea {
+	margin-bottom: 10px;
+	border: 3px solid #ccc;
+	border-radius: 3px;
+}
+
+input {
+	width: calc(100% - 10px);
+	padding: 5px;
+	height: 60px;
+}
+
+input[type="date"] {
+	padding: 4px 5px;
+}
+
+textarea {
+	width: calc(100% - 12px);
+	padding: 5px;
+}
+
+.item:hover p, .item:hover i, .question:hover p, .question label:hover,
+	input:hover::placeholder {
+	color: #800080;
+}
+
+.item input:hover, .item select:hover, .item textarea:hover {
+	border: 3px solid transparent;
+	box-shadow: 0 0 3px 0 #cc7a00;
+	color: #cc7a00;
+}
+
+.item {
+	position: relative;
+	margin: 10px 0;
+}
+
+.item span {
+	color: red;
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+	display: none;
+}
+
+.item i, input[type="date"]::-webkit-calendar-picker-indicator {
+	position: absolute;
+	font-size: 20px;
+	color: #cc7a00;
+}
+
+.item i {
+	right: 1%;
+	top: 30px;
+	z-index: 1;
+}
+
+[type="date"]::-webkit-calendar-picker-indicator {
+	right: 1%;
+	z-index: 2;
+	opacity: 0;
+	cursor: pointer;
+}
+
+input[type=radio], input[type=checkbox] {
+	display: none;
+}
+
+label.radio {
+	position: relative;
+	display: inline-block;
+	margin: 5px 20px 15px 0;
+	cursor: pointer;
+}
+
+.question span {
+	margin-left: 30px;
+}
+
+.question-answer label {
+	display: block;
+}
+
+label.radio:before {
+	content: "";
+	position: absolute;
+	left: 0;
+	width: 17px;
+	height: 17px;
+	border-radius: 50%;
+	border: 2px solid #ccc;
+}
+
+input[type=radio]:checked+label:before, label.radio:hover:before {
+	border: 2px solid #cc7a00;
+}
+
+label.radio:after {
+	content: "";
+	position: absolute;
+	top: 6px;
+	left: 5px;
+	width: 8px;
+	height: 4px;
+	border: 3px solid #cc7a00;
+	border-top: none;
+	border-right: none;
+	transform: rotate(-45deg);
+	opacity: 0;
+}
+
+input[type=radio]:checked+label:after {
+	opacity: 1;
+}
+
+.btn-block {
+	margin-top: 10px;
+	text-align: center;
+}
+
+button {
+	width: 150px;
+	padding: 10px;
+	border: none;
+	border-radius: 5px;
+	background: #cc7a00;
+	font-size: 16px;
+	color: #800080;
+	cursor: pointer;
+}
+
+button:hover {
+	background: #800080;
+}
+
+@media ( min-width : 568px) {
+	.name-item, .city-item {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	.name-item input, .name-item div {
+		width: calc(50% - 20px);
+	}
+	.name-item div input {
+		width: 97%;
+	}
+	.name-item div label {
+		display: block;
+		padding-bottom: 5px;
+	}
+}
+
+.sub {
+	width: 450px;
+	border: none;
+	background: green;
+	font-size: 16px;
+	color: white;
+	cursor: pointer;
+}
+
+.sub:hover {
+	background: #800080;
+}
+
+.menu {
+	font-size: 30px;
+	cursor: pointer;
+	color: white;
+}
+
+.menu:hover {
+	color: black;
+}
+</style>
+<title>BMRCL &nbsp; ನಮ್ಮ ಮೆಟ್ರೋ</title>
+<link rel="icon" type="jpg/png" sizes="40px"
+	href="https://img.icons8.com/external-konkapp-outline-color-konkapp/64/000000/external-railway-japan-konkapp-outline-color-konkapp.png">
+</head>
+<body>
+
+	<div class="header">
+		<marquee>
+			<a class="logo"><img alt="not found" width="600px" height="190px"
+				align="middle"
+				src="https://newsonprojects.com/uploads/news/121616.png"></a>
+		</marquee>
+	</div>
+	<div id="mySidenav" class="sidenav">
+		<div>
+			<div class="container">
+				<img width="100px" style="border-radius: 500%"
+					src="https://i.pinimg.com/originals/66/83/3e/66833e07d6fb9eb5d724e47d0c814285.gif"
+					alt="Avatar" class="image">
+				<div class="overlay">Koushik</div>
+			</div>
+		</div>
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="#">About</a> <a href="home">Home Page</a> <a th:href="@{add}">Employee
+			Registration</a> <a href="insert" th:href="@{insert}">Ticket Counter</a><a
+			href="/employe/list">View Employee Details</a><a href="view"
+			th:href="@{view}">View Ticket Counter Details</a><a href="#">Logout</a>
+	</div>
+
+	<div id="main"
+		style="overflow: hidden; background-color: green; padding: 5px 1px; align-content: center;">
+		<span class="menu" onclick="openNav()">&#9776; Menu </span> &nbsp;
+		&nbsp; &nbsp; &nbsp; <a class="home" href="" th:href="@{home}"><img
+			width="20px" src="https://app.khatokhal.org/assets/icon/gif/home.gif">Home
+			Page </a>
+	</div>
+	<div
+		style="background-image: url('https://i.pinimg.com/originals/cf/94/7b/cf947b46283c10c47e3d5d945afb7053.gif');">
+		<div style="text-align: center; font-family: OCR A Std, monospace">
+			<p class="text">Employee Registration</p>
+		</div>
+
+		<div
+			style="border-width: 200%; border-top-width: 100%; align-content: center; align-self: center; align-items: center; border-bottom-style: groove;">
+			<div style="padding: 30px 20px; width: 100%">
+				<div class="col-md-10" style="padding: 60px 20px; width: 100%">
+					<form action="#" th:action="@{add}" th:object="${employedata}"
+						method="post">
+
+						<div class="row">
+							<div class="form-group col-md-8">
+								<input type="text" id="ename" th:field="*{ename}"
+									placeholder="Employe Name" required="required"><span
+									th:if="${#fields.hasErrors('ename')}" th:errors="*{ename}"
+									class="text-danger"></span>
+							</div>
+							<div class="form-group col-md-8">
+								<input type="text" id="address" th:field="*{address}"
+									placeholder="Employee Address" required="required"><span
+									th:if="${#fields.hasErrors('address')}" th:errors="*{address}"
+									class="text-danger"></span>
+							</div>
+							<div class="form-group col-md-8">
+								<input type="text" id="desig" th:field="*{desig}"
+									placeholder="Employee Designation" required="required"><span
+									th:if="${#fields.hasErrors('desig')}" th:errors="*{desig}"
+									class="text-danger"></span>
+							</div>
+							<div class="col-md-6" align="center"
+								style="width: 150px; border-radius: 5px; background: #800080; font-size: 16px; color: #800080; cursor: pointer;">
+								<input type="submit" class="sub" value="Add Employe">
+							</div>
+
+							<div class="form-group col-md-8"></div>
+
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-clean">
+		<footer>
+			<div class="container">
+				<div class="row justify-content-center">
+					<a style="color: white" class="copyright" href=" www.bmrc.co.in"><img
+						width="50px"
+						src="https://img.icons8.com/clouds/100/000000/domain.png" />www.bmrc.co.in</a>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script>
+		function openNav() {
+			document.getElementById("mySidenav").style.width = "250px";
+			document.getElementById("main").style.marginLeft = "250px";
+			document.body.style.backgroundColor = "purple";
+		}
+
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+			document.getElementById("main").style.marginLeft = "0";
+			document.body.style.backgroundColor = "white";
+		}
+	</script>
+
+</body>
+</html>
